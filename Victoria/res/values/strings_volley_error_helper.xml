@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="volley_error_helper_generic_server_down">Remote server is down. Try later.</string>
+    <string name="volley_error_helper_no_internet">Internet connection is down.</string>
+    <string name="volley_error_helper_generic_error">Errors occurs.</string>
+    
+</resources>
