@@ -10,5 +10,6 @@
     <string name="act_login_hint_user_email">Email</string>
     <string name="act_login_hint_password">Password</string>
     <string name="act_login_btn_login">Login</string>
+    <string name="act_login_msg_invalid_email_or_password">Invalid email or password</string>
 
 </resources>

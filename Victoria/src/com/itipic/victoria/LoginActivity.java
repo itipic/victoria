@@ -24,6 +24,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import comm.itipic.victoria.utils.MyToolBox;
+import comm.itipic.victoria.utils.VolleyErrorHelper;
 
 public class LoginActivity extends Activity {
 	private String mUserEmail;
@@ -91,8 +92,17 @@ public class LoginActivity extends Activity {
 			       }, new Response.ErrorListener() {
 			           @Override
 			           public void onErrorResponse(VolleyError error) {
-			               VolleyLog.e("Error: ", error.getMessage());
-			               Toast.makeText(getApplicationContext(), "Login Error", Toast.LENGTH_LONG).show();
+			        	  
+			               
+			               //this exception is thrown if the server replies with a 401.
+			        	   if ((Object) error instanceof AuthFailureError) {
+			        		   VolleyLog.e("Error: ", error.getMessage());
+			        		   Toast.makeText(getApplicationContext(), R.string.act_login_msg_invalid_email_or_password, Toast.LENGTH_LONG).show();
+			        	   }
+			        	   else {
+			        		   VolleyLog.e("Error: ", error.getMessage());
+			        		   Toast.makeText(getApplicationContext(), VolleyErrorHelper.getMessage(error, getApplicationContext()), Toast.LENGTH_LONG).show();
+			        	   }
 			           }
 			       }) {
 			@Override
