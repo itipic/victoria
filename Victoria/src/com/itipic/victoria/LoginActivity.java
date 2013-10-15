@@ -84,7 +84,8 @@ public class LoginActivity extends Activity {
 			                   VolleyLog.v("Response:%n %s", response.toString(4));
 			                   //String text = response.toString(4);
 			                   //Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG).show();
-			                   Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_LONG).show();
+			                   Log.i(TAG, response.toString(4));
+			                   Toast.makeText(getApplicationContext(), R.string.act_login_msg_login_success, Toast.LENGTH_LONG).show();
 			               } catch (JSONException e) {
 			                   e.printStackTrace();
 			               }
